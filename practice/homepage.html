@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>墨案科技——专注科技，不带感情！</title>
+    <script src="vue.js" type="text/javascript"></script>
+    <style>
+        .topBar{height: 40px; font-size: 15px; color: #444444;line-height: 35px;background-color: #d0d0d0;}
+        .topBar-left{float: left;list-style: none; position: absolute;top: -7px;left: 20px;}
+        .topBar-right{float: right; list-style: none;position: absolute;top: -7px;right: 20px;}
+        .topBar-left li,.topBar-right li{margin: 0 2px;float:left;text-align: center;}
+        .topBar-left li a:hover,.topBar-right li:hover {color: rgb(222, 42, 42);}
+        .logoBar{height:100px;width: 100%;left: 0px; background-color: #ffffff}
+        .search_box{ width: 447px;padding-top: 33px;padding-left: 160px; }
+        .search_text{background-color: #ffffff; width:360px;height: 35px;padding:0 8px 0 30px;position:absolute;top:70px;left:450px; }
+        .search_image{width: 30px;height: 30px;position: absolute;top: 75px;left: 455px;}
+        .search_btn{ width: 70px;height: 39px;position:absolute;top:70px;left:835px;font-size:14px;background-color: #be2525;font-family: "微软雅黑";color: #ffffff;}
+        .logo_img{width: 180px;height: 90px;position: absolute;top: 50px;left: 60px;}
+        .navBox{height: 35px;font-size: 20px;color: #2a2a2a;}
+        .main{list-style: none;}
+        .main li{margin: 0 100px;float:left;text-align: left;}
+        .main li a{padding:0 5px; display: block;height: 35px;}
+        .main li a:visited,.main li a:link {color: #be2525;text-decoration: none;}
+        .main li ul{padding:0 0px;margin: 0 0 0 -95px;cursor: pointer;display:none;list-style: none;color: #be2525;}
+        .main li ul li{text-align: left;line-height: 25px;float:none;}
+        .main li:hover ul{display:block;position:absolute;}
+        .main li ul li:hover{color: #ffffff;background: #bb3030;}
+        .footer{ width:1100px;margin:0 auto;border-top: #de2a2a 1px solid;margin-top:150px; height: 210px;  background: #d0d0d0;text-align: center;}
+        .footer p{ margin-top:20px;}
+        .footer a{color:#666;}.footer a:hover{ color: rgb(176, 18, 18);}  .footer .fp{color:#666;margin-top:10px;}
+        .footimg{width:120px;height: 10px;}
+        .list{position: fixed;top: 250px;left: 1380px;font-family: "微软雅黑";font-size: 20px;color:white;}
+        .list a {text-decoration: none;color:white;}
+        .slide-fade-enter-active {
+            transition: all 0.3s ease-out;
+        }
+
+        .slide-fade-leave-active {
+            transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+        }
+
+        .slide-fade-enter-from,
+        .slide-fade-leave-to {
+            transform: translateX(20px);
+            opacity: 0;
+        }
+        .Vuelist{position: fixed;right: 20px;height: 50px;}
+    </style>
+</head>
+<body bgcolor="#d0d0d0">
+
+<div class="headerBar">
+    <div class="topBar">
+        <ul class="topBar-left">
+            <a name="Top"></a>                <li><a href="homepage.html">墨案科技——企业一站式采购平台！</a> </li>
+        </ul>
+        <ul class="topBar-right">
+            <li ><a href="#">购物车</a></li>
+            <li ><a href="#">收藏夹</a></li>
+            <li><a href="login.html">登陆</a></li>
+            <li><a href="register.html" target="_blank">注册</a></li>
+        </ul>
+    </div>
+    <div class="logoBar">
+        <div class="logo">
+            <input type="image" class="logo_img" src="img/logo2-vg.png">
+        </div>
+        <div class="search_box">
+            <input type="text" class="search_text" >
+            <input type="image" class="search_image" src="img/search.png">
+            <input type="button" value="搜&nbsp;索" class="search_btn">
+        </div>
+    </div>
+</div>
+<div class="navBox">
+    <div class="Main">
+        <ul class="main">
+            <li><a class="main1" href="https://www.oray.com/" >储存区</a>
+                <ul ><li href="https://www.oray.com/">机械硬盘</li><li href="https://www.oray.com/">M.2固态硬盘</li><li href="https://www.oray.com/">raid卡</li><li href="https://www.oray.com/">硬盘托架</li></ul></li>
+            <li><a  class="main2" href="https://www.oray.com/">数据处理</a>
+                <ul>  <li href="https://www.oray.com/">Intel至强E5系列</li><li href="https://www.oray.com/">Intel至强E7系列</li> </ul></li>
+            <li><a  class="main3" href="https://www.oray.com/">图形运算</a>
+                <ul>  <li href="https://www.oray.com/">丽台系列显卡</li><li href="https://www.oray.com/">特斯拉系列显卡</li><li href="https://www.oray.com/">Geforce系列显卡</li> </ul></li>
+            <li><a  class="main4" href="https://www.oray.com/">网络传输</a>
+                <ul>  <li href="https://www.oray.com/">企业路由</li><li href="https://www.oray.com/">交换机</li><li href="https://www.oray.com/">工业路由</li><li href="https://www.oray.com/">通讯线缆</li> </ul></li>
+            <li><a  class="main5" href="https://www.oray.com/">其他硬件</a>
+                <ul>  <li href="https://www.oray.com/">刀架服务器</li><li href="https://www.oray.com/">线缆</li><li href="https://www.oray.com/">散热器</li><li href="https://www.oray.com/">电源</li><li href="https://www.oray.com/">等保机</li><li href="https://www.oray.com/">机柜</li><li href="https://www.oray.com/">其他组件</li> </ul></li>
+        </ul>
+    </div>
+    <table cellspacing="2" align="center">
+        <tr><td><a href="https://www.westerndigital.com/" target="_blank"><img src="img/硬盘.jpg" width="400" height="300"></a></td>
+            <td><video width="500" height="300" src="img/路由器视频.mp4" autoplay="autoplay" loop="loop"></video></td>
+            <td><a href="https://www.oray.com/" target="_blank"><img src="img/工业路由.png" width="400" height="300"  ></a></td>	</tr>
+    </table>
+    <div class="Vuelist" id="Vuelist">
+        <button @click="show = !show">
+            其他服务
+        </button>
+        <transition name="slide-fade">
+            <p v-if="show">
+            <table class="list" border="1" bgcolor="#be2525" bordercolor="white"cellpadding="5">
+                <tr><td><a href="https://www.oray.com/" target="_blank">个人搭建>></a></td></tr>
+                <tr><td><a href="https://www.oray.com/" target="_blank">企业搭建>></a></td></tr>
+                <tr><td><a href="service.html" target="_blank">客户服务>></a></td></tr>
+                <tr><td><a href="#Top">回到顶部>></a></td></tr>
+
+            </table>
+            </p>
+        </transition>
+    </div>
+    <script type="text/javascript">
+        new Vue({
+            el: '#Vuelist',
+            data: {
+                show: true
+            }
+        })
+    </script>
+    <p align="center" style="font-family: 宋体;font-size: 30px;color: black;"><b>-机房硬件-</b></p>
+    <table  border="1" bordercolor="crimson" cellspacing="10" align="center">
+        <tr>
+            <td rowspan="2"><a href="https://www.oray.com/" target="_blank"><img src="img/Oray.png" width="300px" height="600px"></a></td>
+            <td rowspan="2" colspan="2"><a href="https://www.oray.com/" target="_blank"><img src="img/Oray-js.png" width="600px" height="600px"></a></td>
+            <td><a href="http://weixin.qq.com/r/5B2dhUzEQBE-rQjm90j2" target="_blank"><img src="img/qrcode1637849172908.jpg" width="300px" height="300px"></a></td>
+        </tr>
+        <tr>
+            <td><img src="img/路由器.png" width="300px" height="300px"></td>
+        </tr>
+        <tr>
+            <td><img src="img/工业路由.png" width="300px" height="300px"></td>
+            <td><img src="img/硬盘.jpg"  width="300px" height="300px"></td>
+            <td><img src="img/开机盒子.png" width="300px" height="300px"></td>
+            <td><img src="img/C1Pro.png" width="300px" height="300px"></td>
+        </tr>
+    </table>
+    <div class="footer">
+        <p><a href="#">联系我们</a>&nbsp;&nbsp; | &nbsp;&nbsp;<a href="#">诚聘英才</a>&nbsp;&nbsp; | &nbsp;&nbsp;<a href="https://www.oray.com/">合作招商</a>&nbsp;&nbsp; | &nbsp;&nbsp;<a href="#">广告平台</a>&nbsp;&nbsp; | &nbsp;&nbsp;<a href="question.html">问题反馈</a></p>
+        <p class="fp">本网站直接或间接向消费者推销商品或者服务的商业宣传均属于“广告”（包装及参数、售后保障等商品信息除外）</p>
+        <div class="footimg">
+            <img src="img/logo1-vg.png" width="200px";height="60px";>
+        </div>
+    </div>
+</div>
+</body>
+</html>
