@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新首页</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: #f5f5f5;
+        }
+        a{
+            text-decoration:none ;
+        }
+        /*Banner*/
+        #ad{
+            width:1060px;
+            height:600px;
+            position:relative;
+            margin: 0 auto;
+        }
+        /*取消小圆点*/
+        #ad li{
+            list-style:none;
+        }
+        #ad_img li{
+            display:none;
+        }
+        /*角落显示数字的ul*/
+        #ad_num{
+            overflow:hidden;
+            position:absolute;
+            bottom:100px;
+            right:10px;
+            color:#FFF;
+        }
+        /*数字的浮动*/
+        #ad_num li{
+            border:#FFF solid 1px;
+            float:left;
+            margin:0px 5px;
+            padding:3px 10px;
+        }
+        .numsover{
+            background-color:#F08080;
+            color:#F00;
+        }
+        /*精选图片*/
+        #ms{
+            width: 1920px;
+            margin: 0 auto;
+        }
+        #ms .ms_top{
+            width: 500px;
+            height: 55px;
+            /*-webkit-background-size: 1200px 55px;*/
+            background-size: 1200px 55px;
+            line-height: 55px;
+            margin-left: 2px;
+            border-top-right-radius: 20px;
+            margin-top: 20px;
+            background: gray;
+        }
+        #ms .ms_top span{
+            color: whitesmoke ;
+        }
+        #ms .ms_top span:first-child{
+            font-weight: bold;
+            margin: 0 10px;
+            font-size: 20px;
+        }
+        #ms .ms_body{
+            width: 1900px;
+            display: flex;
+            margin: 0 auto;
+        }
+        #ms .ms_body li{
+            margin: 10px auto;
+            margin-left: 20px;
+            margin-bottom: 20px;
+            border: 1px solid darkgray;
+            border-radius: 8px 8px 8px 8px;
+        }
+        #ms .ms_body li p.name{
+            padding-left: 10px;
+            display: block;
+            margin-top: 20px;
+            font-size: 25px;
+            font-weight: bold;
+            color: gray;
+        }
+        #ms .ms_body li .photoby{
+            padding-left: 400px;
+            margin-top: 10px;
+            display: block;
+            font-size: 15px;
+            font-weight: bold;
+            color: gray;
+            margin-bottom: 5px;
+        }
+        #ms .ms_body img{
+            width: 500px;
+            height: 350px;
+            cursor: pointer;
+            transition: all 0.6s;
+        }
+        #ms .ms_body img:hover{
+            transform: scale(1.2);
+        }
+        #ms .ms_body li .photoby img{
+            width: 20px;
+            height: 20px;
+            float: left;
+            margin-right: 10px;
+        }
+        /*设置图片左边*/
+        #ms .ms_body_left ul{
+            list-style: none;
+            flex: 1;
+            padding-left: 10px;
+            margin-top: 20px;
+        }
+        /*设置图片中间*/
+        #ms .ms_body_center ul{
+            list-style: none;
+            flex: 1;
+            padding-left: 10px;
+            margin-top: 20px;
+        }
+        /*设置页面右边*/
+        #ms .ms_body_right ul{
+            list-style: none;
+            flex: 1;
+            padding-left: 10px;
+            margin-top: 20px;
+        }
+
+    </style>
+    <script>
+        function changeImg() {
+            /*获取图片和索引的数组*/
+            var $imgs = $("#ad_img li");
+            var $nums = $("#ad_num li");
+
+            var isStop = false;
+            var index = 0;
+
+            $nums.eq(index).addClass("numsover").siblings().removeClass("numsover");
+            $imgs.eq(index).show();
+
+            /*鼠标悬停在数字上的事件*/
+            $nums.mouseover(function() {
+                isStop = true;
+                /*先把数字的背景改了*/
+                $(this).addClass("numsover").siblings().removeClass("numsover");
+
+                /*图片的索引和数字的索引是对应的，所以获取当前的数字的索引就可以获得图片，从而对图片进行操作*/
+                index = $nums.index(this);
+                $imgs.eq(index).show("slow");
+                $imgs.eq(index).siblings().hide("slow");
+            }).mouseout(function() {
+                isStop = false
+            });
+            /*设置循环*/
+            setInterval(function() {
+                if(isStop) return;
+                if(index >= 5) index = -1;
+                index++;
+                $nums.eq(index).addClass("numsover").siblings().removeClass("numsover");
+                $imgs.eq(index).show("slow").siblings().hide("slow");
+
+            }, 3000);
+
+        }
+
+
+    </script>
+</head>
+<body>
+<!--头部-->
+<div id="header">
+    <!--顶部 登录-->
+    <div class="header_top">
+        <!-- 中部 -->
+        <div class="header_top_center">
+            <!-- 中部左侧 -->
+            <div class="h_top_left">
+                欢迎来到未命名图库
+            </div>
+            <!-- 中部右侧-->
+            <div class="h_top_right">
+                <a href="login.html">登录</a>
+                <a href="regist.html">免费注册</a>
+                <a href="#">购物车</a>
+                <a href="#">我的订单</a>
+            </div>
+
+
+        </div>
+    </div>
+    <!-- 中部搜索-->
+    <div class="header_center">
+        <!--        中部左边logo-->
+        <div class="h_c_logo">
+            <img src="images/logo.png" alt="">
+        </div>
+        <div class="h_c_search">
+            <form action="#">
+                <input type="text" placeholder="请输入..." class="t_input">
+                <input type="submit" class="t_button" value="搜索">
+            </form>
+
+            <div class="hot">
+                <a href="#">山川</a>
+                <a href="#">沙漠</a>
+                <a href="#">星空</a>
+                <a href="#">静物</a>
+            </div>
+
+        </div>
+        <!--        中部右边二维码-->
+        <div class="h_c_code">
+            <img src="images/code.jpg" alt="">
+        </div>
+    </div>
+    <!--底部导航        -->
+    <div class="nav">
+        <ul>
+            <li><a href="#">首页</a></li>
+            <li><a href="#">最新图片</a></li>
+            <li><a href="#">最热图片</a></li>
+            <li><a href="#">山川湖海</a></li>
+            <li><a href="#">大漠孤烟</a></li>
+            <li><a href="#">人像精选</a></li>
+        </ul>
+    </div>
+</div>
+<!--banner-->
+<div id="ad" style="text-align: center;">
+    <ul id="ad_img" >
+        <li><img src="images/banner/1.jpg" width="1100" height="600" /></li>
+        <li><img src="images/banner/2.jpg" width="1100" height="600" /></li>
+        <li><img src="images/banner/3.jpg" width="1100" height="600" /></li>
+        <li><img src="images/banner/4.jpg" width="1100" height="600" /></li>
+        <li><img src="images/banner/5.jpg" width="1100" height="600" /></li>
+    </ul>
+
+    <ul id="ad_num">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <!--<li>6</li>-->
+    </ul>
+</div>
+
+
+<!--精选图片-->
+<div id="ms">
+    <div class="ms_top">
+        <span>精选图片</span>
+        <span>总有一副让你怦然心动</span>
+    </div>
+    <div class="ms_body">
+        <div class="ms_body_left">
+            <ul>
+
+                <li>
+                    <a href="">
+                        <img src="images/gallery/01.jpg" alt="">
+                        <p class="name">一个好听的名字</p>
+                        <div class="photoby">
+                            <img src="images/camera.jpg " width="10" height="10" alt=""/>
+                            <p>lzh</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/gallery/02.jpg" alt="">
+                        <p class="name">一个好听的名字</p>
+                        <div class="photoby">
+                            <img src="images/camera.jpg " width="10" height="10" alt=""/>
+                            <p>lzh</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/gallery/03.jpg" alt="">
+                        <p class="name">一个好听的名字</p>
+                        <div class="photoby">
+                            <img src="images/camera.jpg " width="10" height="10" alt=""/>
+                            <p>lzh</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/gallery/04.jpg" alt="">
+                        <p class="name">一个好听的名字</p>
+                        <div class="photoby">
+                            <img src="images/camera.jpg " width="10" height="10" alt=""/>
+                            <p>lzh</p>
+                        </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="">
+                        <img src="images/gallery/05.jpg" alt="">
+                        <p class="name">一个好听的名字</p>
+                        <div class="photoby">
+                            <img src="images/camera.jpg " width="10" height="10" alt=""/>
+                            <p>lzh</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="ms_body_center">
+            <ul>
+                <li>
+                    <a href="">
+                        <img src="images/gallery/06.jpg" alt="">
+                        <p class="name">一个好听的名字</p>
+                        <div class="photoby">
+                            <img src="images/camera.jpg " width="10" height="10" alt=""/>
+                            <p>lzh</p>
+                        </div>
+
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/gallery/07.jpg" alt="">
+                        <p class="name">一个好听的名字</p>
+                        <div class="photoby">
+                            <img src="images/camera.jpg " width="10" height="10" alt=""/>
+                            <p>lzh</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/gallery/08.jpg" alt="">
+                        <p class="name">一个好听的名字</p>
+                        <div class="photoby">
+                            <img src="images/camera.jpg " width="10" height="10" alt=""/>
+                            <p>lzh</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/gallery/09.jpg" alt="">
+                        <p class="name">一个好听的名字</p>
+                        <div class="photoby">
+                            <img src="images/camera.jpg " width="10" height="10" alt=""/>
+                            <p>lzh</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/gallery/10.jpg" alt="">
+                        <p class="name">一个好听的名字</p>
+                        <div class="photoby">
+                            <img src="images/camera.jpg " width="10" height="10" alt=""/>
+                            <p>lzh</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="ms_body_right">
+            <ul>
+                <li>
+                    <a href="">
+                        <img src="images/gallery/11.jpg" alt="">
+                        <p class="name">一个好听的名字</p>
+                        <div class="photoby">
+                            <img src="images/camera.jpg " width="10" height="10" alt=""/>
+                            <p>lzh</p>
+                        </div>
+                    </a>
+
+
+
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/gallery/12.jpg" alt="">
+                        <p class="name">一个好听的名字</p>
+                        <div class="photoby">
+                            <img src="images/camera.jpg " width="10" height="10" alt=""/>
+                            <p>lzh</p>
+                        </div>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/gallery/13.jpg" alt="">
+                        <p class="name">一个好听的名字</p>
+                        <div class="photoby">
+                            <img src="images/camera.jpg " width="10" height="10" alt=""/>
+                            <p>lzh</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/gallery/14.jpg" alt="">
+                        <p class="name">一个好听的名字</p>
+                        <div class="photoby">
+                            <img src="images/camera.jpg " width="10" height="10" alt=""/>
+                            <p>lzh</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/gallery/15.jpg" alt="">
+                        <p class="name">一个好听的名字</p>
+                        <div class="photoby">
+                            <img src="images/camera.jpg " width="10" height="10" alt=""/>
+                            <p>lzh</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<!--翻页按钮-->
+<div class="page-icon">
+    <span class="page-disabled"><i></i>上一页</span>
+    <span class="page-current">1</span>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">5</a>
+    <a href="#">6</a>
+    <a href="#">7</a>
+    ……
+    <a href="#">...</a>
+    <a href="#">10</a>
+    <a class="page-next" href="#">下一页<i></i></a>
+</div>
+<!--尾部-->
+<div id="footer">
+    <div class="link">
+        <a href="">关于我们</a>
+        |
+        <a href="">联系我们</a>
+        |
+        <a href="">商家入驻</a>
+        |
+        <a href="">友情链接</a>
+        |
+    </div>
+    <div class="copyright">
+        Copyright © 1999 - 2020 LZH. All Rights Reserved.
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这是新写的注册</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+        }
+
+        #header{
+            height: 210px;
+            background: white;
+        }
+
+        #header .header_top{
+            height: 36px;
+            background:#f5f5f5;
+        }
+
+        #header .header_top_center{
+            width: 1200px;
+            height: 36px;
+            margin: 0 auto;
+            line-height: 36px;
+        }
+        #header .header_top_center .h_top_left{
+            color: gray;
+            font-size: 13px;
+            float: left;
+            height: 36px;
+        }
+        #header .header_top_center .h_top_right{
+            color: gray;
+            font-size: 13px;
+            float: right;
+            height: 36px;
+        }
+        #header .header_top_center.h_top_right a{
+            color: #6c6c6c;
+            margin: 0 5px;
+            font-size: 13px;
+        }
+
+        #header .header_center{
+            height: 124px;
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        #header .header_center .h_c_logo{
+            width: 190px;
+            height: 124px;
+            float: left;
+        }
+
+        #header .header_center .h_c_search{
+            width: 815px;
+            height: 124px;
+            float: left;
+        }
+
+        #header .header_center .h_c_code{
+            width: 190px;
+            height: 124px;
+            float: left;
+        }
+
+        #header .h_c_logo img{
+            width: 200px;
+            height:120px;
+            margin-top:4px ;
+        }
+
+        #header .h_c_search form{
+            width: 650px;
+            height: 40px;
+            margin-top: 40px;
+            margin-left: 50px;
+        }
+        #header .h_c_search form .t_input{
+            width: 555px;
+            height: 40px;
+            border: 2px solid black;
+            padding-left: 10px;
+        }
+
+        #header .h_c_search form .t_button{
+            width: 75px;
+            height: 40px;
+            border: 1px solid gray;
+            float: right;
+            color: orange;
+            margin-left: 5px;
+
+
+        }
+        #header .h_c_search .hot{
+            margin-left: 80px;
+            margin-top: 5px;
+        }
+        #header .h_c_search .hot a{
+            color: #6c6c6c;
+            font-size: 15px;
+        }
+
+        #header .h_c_search .hot a:hover{
+            color: orangered;
+        }
+
+        #header .h_c_code img{
+            margin-top: 10px;
+            margin-left: 20px;
+            width: 140px;
+            height: 110px;
+        }
+        #header .nav{
+            width: 1200px;
+            height: 44px;
+            margin: 0 auto;
+            background: darkslategrey;
+            line-height: 44px;
+            border-radius:8px 8px 8px 8px ;
+        }
+        #header .nav ul{
+            list-style: none;
+            width: 1200px;
+            height: 44px;
+            display: flex;
+        }
+        #header .nav ul li{
+            flex: 1;
+            text-align: center;
+        }
+
+        #header .nav ul li a{
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        #header .nav ul li a:hover{
+            font-size: 25px;
+        }
+        #footer{
+            text-align: center;
+            height: 300px;
+            padding-top: 30px;
+        }
+        #footer .copyright{
+            margin-top: 20px;
+        }
+
+        *{
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #header{
+            height: 88px;
+            border: 1px solid;
+        }
+
+        #header .h_center{
+            width: 1200px;
+            height: 88px;
+
+            margin: 0 auto;
+        }
+        #header .h_center img{
+            float: left;
+            height: 80px;
+            width: 120px;
+            margin-top: 5px;
+        }
+        #header .h_center p{
+            float: left;
+            text-align: center;
+            width: 880px;
+            font-size: 10px;
+            border: 1px solid yellow;
+            margin-top: 20px;
+            margin-left: 80px;
+            color: blue;
+            background: pink;
+            padding: 3px;
+        }
+
+        #login_body{
+            height: 600px;
+            background-image: url("../images/night.jpg");
+            background-position: center;
+            background-size: 1000px 600px;
+        }
+        #login_body .login_b_center{
+            width: 1200px;
+            height: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+        #login_body .login_bg{
+            width: 350px;
+            height: 351px;
+            background: rgba(255,255,255,0.9);
+            position: absolute;
+            right: -10px;
+            top: 80px;
+            padding: 30px;
+
+        }
+        #login div{
+            height: 40px;
+            margin-top: 20px;
+        }
+        #login span{
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+            background: red;
+            float: left;
+            border: 1px gray;
+        }
+        #login .userName span{
+            background-image: url("../images/商城素材/userName_Icon.png");
+        }
+        #login .password span{
+            background-image: url("../images/商城素材/password_Icon.png");
+        }
+
+        #login input{
+            width: 250px;
+            height: 40px;
+            float: left;
+        }
+        #login .login_btn input{
+            background-color: coral;
+            width: 300px;
+            border: none;
+            color: whitesmoke;
+            float: left;
+
+        }
+        #login .login_btn a:hover{
+            color: blue;
+            float: left;
+
+        }
+        #login .forgot_password{
+            text-align: right;
+            margin-top: 20px;
+        }
+        a{
+            text-decoration:none;
+        }
+
+    </style>
+</head>
+<body>
+<!--头部-->
+<div id="header">
+    <!--头部中间信息-->
+    <div class="h_center">
+        <img src="images/logo.png" alt="">
+        <p>欢迎来到未命名图库：请先登录！</p>
+    </div>
+</div>
+
+
+<!--中部-->
+<div id="login_body">
+    <div class="login_b_center">
+        <div class="login_bg">
+            <h1>密码登录</h1>
+            <form action="#" id="login">
+                <!--                //用户名-->
+                <div class="userName">
+                    <span></span><input type="text">
+                </div>
+                <!--                //密码-->
+                <div class="password">
+                    <span></span><input type="password">
+                </div>
+                <!--                //登录按钮-->
+                <div class="login_btn">
+                    <a href="index.html">
+                        <input type="button" value="登录">
+                    </a>
+                </div>
+                <div class="forgot_password">
+                    <a href="">忘记密码</a>
+                    <a href="regist.html">注册账号</a>
+                    <a href="1.0/index.html">帮助</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--尾部-->
+<div id="footer">
+    <div class="link">
+        <a href="">关于我们</a>
+        |
+        <a href="">联系我们</a>
+        |
+        <a href="">商家入驻</a>
+        |
+        <a href="">友情链接</a>
+        |
+    </div>
+    <div class="copyright">
+        Copyright © 1999 - 2020 LZH. All Rights Reserved.
+    </div>
+</div>
+</body>
+</html>
